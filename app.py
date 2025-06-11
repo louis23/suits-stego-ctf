@@ -49,9 +49,9 @@ if st.button("🔐 Encode"):
 # Step 3: Allow download of encoded png
 import io
 
-# After saving encoded_image
+# After saving encoded image
 buffer = io.BytesIO()
-encoded_image.save(buffer, format="PNG")
+encoded.save(buffer, format="PNG")
 buffer.seek(0)
 
 st.download_button(
