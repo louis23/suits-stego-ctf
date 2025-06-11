@@ -19,7 +19,7 @@ st.markdown("### 🎥 Step 1: Watch the Video")
 st.video("https://youtu.be/XKxylKR1b-Q?t=110")
 st.info("Find out how much Louis gave Mike as a reward.")
 
-# Step 2: Provide base image for encoding
+# Step 2: Encode the answer
 st.markdown("### 🧩 Step 2: Encode the Answer into the Image")
 st.image("suits.png", caption="Base Image – Hide your answer under this image", use_container_width=True)
 
@@ -33,12 +33,12 @@ if st.button("🔐 Encode"):
             original = Image.open("suits.png").convert("RGB")
             encoded = lsb.hide(original, encrypted)
 
-            # buffer = BytesIO()
-            # encoded.save(buffer, format="PNG")
+            buffer = BytesIO()
+            encoded.save(buffer, format="PNG")
             buffer.seek(0)
 
             st.image(buffer, caption="🔏 Encoded Image", use_container_width=True)
-            st.success("Image encoded! Now try decoding it below.")
+            st.success("✅ Image encoded! Now try decoding it below.")
 
             st.download_button(
                 label="📥 Download Encoded Image (PNG)",
@@ -46,12 +46,13 @@ if st.button("🔐 Encode"):
                 file_name="encoded_image.png",
                 mime="image/png"
             )
+
         except Exception as e:
             st.error(f"Error during encoding: {e}")
     else:
         st.warning("Please enter both a message and an encryption key.")
 
-# Step 3: Decode and check result
+# Step 3: Decode the hidden message
 st.markdown("### 🕵️ Step 3: Decode the Hidden Message")
 uploaded_file = st.file_uploader("Upload the encoded image (PNG)", type=["png"])
 decode_key = st.text_input("Enter the decryption key:")
