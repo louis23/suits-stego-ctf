@@ -66,24 +66,34 @@ st.markdown("### 🕵️ Step 3: Decode the Hidden Message")
 uploaded_file = st.file_uploader("Upload the encoded image (PNG)", type=["png"])
 decode_key = st.text_input("Enter the decryption key:")
 
-if st.button("🔓 Decode"):
-    if uploaded_file and decode_key:
+if st.button("🔐 Encode"):
+    if user_message and encode_key:
         try:
-            image = Image.open(uploaded_file)
-            hidden = lsb.reveal(image)
-            if hidden:
-                decrypted = xor_encrypt_decrypt(hidden, decode_key.strip())
-                st.code(decrypted)
-                if decrypted.strip().lower() in [ans.lower() for ans in accepted_answers]:
-                    st.success("✅ Great job! You have successfully encoded and decoded the hidden message.")
-                else:
-                    st.warning("❌ Incorrect message. Hint: Look at the video at 3:30.")
-            else:
-                st.error("No hidden message found.")
+            # Encrypt and encode
+            encrypted = xor_encrypt_decrypt(user_message, encode_key)
+            original = Image.open("suits.png").convert("RGB")
+            encoded = lsb.hide(original, encrypted)
+
+            # Save to memory for display and download
+            buffer = BytesIO()
+            encoded.save(buffer, format="PNG")
+            buffer.seek(0)
+
+            st.image(buffer, caption="🔏 Encoded Image", use_container_width=True)
+            st.success("Image encoded! Now try decoding it below.")
+
+            # ✅ Download button appears only if encoding succeeds
+            st.download_button(
+                label="📥 Download Encoded Image (PNG)",
+                data=buffer,
+                file_name="encoded_image.png",
+                mime="image/png"
+            )
+
         except Exception as e:
-            st.error(f"Error during decoding: {e}")
+            st.error(f"Error during encoding: {e}")
     else:
-        st.warning("Please upload an image and enter the decryption key.")
+        st.warning("Please enter both a message and an encryption key.")
 
 # import streamlit as st
 # from stegano import lsb
