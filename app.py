@@ -46,7 +46,22 @@ if st.button("🔐 Encode"):
     else:
         st.warning("Please enter both a message and an encryption key.")
 
-# Step 3: Decode and check result
+# Step 3: Allow download of encoded png
+import io
+
+# After saving encoded_image
+buffer = io.BytesIO()
+encoded_image.save(buffer, format="PNG")
+buffer.seek(0)
+
+st.download_button(
+    label="📥 Download Encoded Image (PNG)",
+    data=buffer,
+    file_name="encoded_image.png",
+    mime="image/png"
+)
+
+# Step 4: Decode and check result
 st.markdown("### 🕵️ Step 3: Decode the Hidden Message")
 uploaded_file = st.file_uploader("Upload the encoded image (PNG)", type=["png"])
 decode_key = st.text_input("Enter the decryption key:")
