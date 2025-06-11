@@ -13,7 +13,7 @@ accepted_answers = ["10000", "10,000", "10k", "10K"]
 # Streamlit UI setup
 st.set_page_config(page_title="Suits Stego CTF", page_icon="🕵️", layout="centered")
 st.title("🕵️ Suits Steganography Challenge")
-st.markdown("### The video below showcases a real-life parallel to steganography where someone hides a sensitive document amongst a stack of regular documents, which is then passed to someone else who may or may not be the intended recipient of the secret document")
+st.markdown("#### The video below showcases a real-life parallel to steganography where someone hides a sensitive document amongst a stack of regular documents, which is then passed to someone else who may or may not be the intended recipient of the secret document")
 
 # Step 1: Show the video
 st.markdown("### 🎥 Step 1: Watch the Video from 1:50 to 3:30")
@@ -69,7 +69,7 @@ if st.button("🔓 Decode"):
                 if decrypted.strip().lower() in [ans.lower() for ans in accepted_answers]:
                     st.success("✅ Great job! You have successfully encoded and decoded the hidden message.")
                 else:
-                    st.warning("❌ Incorrect message. Hint: Look at the video at 3:30.")
+                    st.warning("❌ Incorrect message. Hint: Either your decrypt key or answer was wrong. For answer, look at the video at 3:30.")
             else:
                 st.error("No hidden message found.")
         except Exception as e:
