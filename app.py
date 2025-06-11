@@ -23,7 +23,7 @@ if not os.path.exists(encoded_image_path):
 st.image(
     encoded_image_path,
     caption='Decode the hidden URL under the image. Then answer the question: "How much did Louis give Mike as a reward?" Use numbers only, no commas.',
-    use_column_width=True
+    use_container_width=True
 )
 
 # Button to reveal the hidden message
