@@ -16,7 +16,7 @@ if not os.path.exists("suits_encoded.png"):
     st.success("Image encoded!")
 
 # Show image
-st.image("suits_encoded.png", caption="Decode the hidden URL under the image. Then answer the question: 'How much did Louis give Mike as a reward?', use_column_width=True)
+st.image("suits_encoded.png", caption="Decode the hidden URL under the image. Then answer the question: 'How much did Louis give Mike as a reward?'", use_column_width=True)
 
 # Button to reveal the message
 if st.button("🔓 Reveal Hidden Message"):
