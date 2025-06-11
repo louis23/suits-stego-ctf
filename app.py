@@ -16,8 +16,15 @@ st.title("🕵️ Suits Steganography Challenge")
 st.markdown("#### The video below showcases a real-life parallel to steganography where someone hides a sensitive document amongst a stack of regular documents, which is then passed to someone else who may or may not be the intended recipient of the secret document")
 
 # Step 1: Show the video
-st.markdown("### 🎥 Step 1: Watch the Video from 1:50 to 3:30")
-st.video("https://youtu.be/XKxylKR1b-Q?t=110")
+st.markdown("### 🎥 Step 1: Watch the Video")
+st.markdown(
+    """
+    [![Watch the video](https://img.youtube.com/vi/XKxylKR1b-Q/0.jpg)](https://youtu.be/XKxylKR1b-Q?t=110)  
+    👉 Or [click here to open in YouTube](https://youtu.be/XKxylKR1b-Q?t=110)
+    """,
+    unsafe_allow_html=True
+)
+
 
 # Step 2: Encode the answer
 st.markdown("### 🧩 Step 2: How much did Louis give Mike as a reward? Type it below and encode the answer into the image")
