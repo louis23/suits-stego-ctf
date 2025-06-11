@@ -13,7 +13,7 @@ accepted_answers = ["10000", "10,000", "10k", "10K"]
 # Streamlit UI setup
 st.set_page_config(page_title="Suits Stego CTF", page_icon="🕵️", layout="centered")
 st.title("🕵️ Suits Steganography Challenge")
-st.markdown("### The video below showcases a real-life parallel to steganography where someone hides a sensitive document amongst a stack of regular documents')
+st.markdown("### The video below showcases a real-life parallel to steganography where someone hides a sensitive document amongst a stack of regular documents, which is then passed to someone else who may or may not be the intended recipient of the secret document")
 
 # Step 1: Show the video
 st.markdown("### 🎥 Step 1: Watch the Video from 1:50 to 3:30")
