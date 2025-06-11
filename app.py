@@ -33,8 +33,8 @@ if st.button("🔐 Encode"):
             original = Image.open("suits.png").convert("RGB")
             encoded = lsb.hide(original, encrypted)
 
-            buffer = BytesIO()
-            encoded.save(buffer, format="PNG")
+            # buffer = BytesIO()
+            # encoded.save(buffer, format="PNG")
             buffer.seek(0)
 
             st.image(buffer, caption="🔏 Encoded Image", use_container_width=True)
