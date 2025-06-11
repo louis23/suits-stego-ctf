@@ -20,7 +20,7 @@ st.markdown("### 🎥 Step 1: Watch the Video from 1:50 to 3:30")
 st.video("https://youtu.be/XKxylKR1b-Q?t=110")
 
 # Step 2: Encode the answer
-st.markdown("### 🧩 Step 2: How much Louis gave Mike as a reward? Type it below and encode the answer into the image")
+st.markdown("### 🧩 Step 2: How much did Louis give Mike as a reward? Type it below and encode the answer into the image")
 st.image("suits.png", caption="Base Image – Hide your answer under this image", use_container_width=True)
 
 user_message = st.text_input("Enter the secret message you want to hide:")
