@@ -7,15 +7,16 @@ st.set_page_config(page_title="Suits Stego CTF", page_icon="🕵️", layout="ce
 
 st.title("🕵️ Suits Stego Challenge")
 
-# Automatically encode message into the image once
+# Automatically encode message into the image once, convert image to RGB
 if not os.path.exists("suits_encoded.png"):
     hidden_message = "https://youtu.be/XKxylKR1b-Q?t=110"
-    encoded = lsb.hide("suits.png", hidden_message)
+    original_image = Image.open("suits.png").convert("RGB")
+    encoded = lsb.hide(original_image, hidden_message)
     encoded.save("suits_encoded.png")
     st.success("Image encoded!")
 
 # Show image
-st.image("suits_encoded.png", caption="Decode me if you can 🕵️", use_column_width=True)
+st.image("suits_encoded.png", caption="Decode the hidden URL under the image. Then answer the question: "How much did Louis give Mike as a reward?", use_column_width=True)
 
 # Button to reveal the message
 if st.button("🔓 Reveal Hidden Message"):
