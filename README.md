@@ -3,6 +3,8 @@
 
 A fun and beginner-friendly cybersecurity CTF-style project using steganography and Streamlit — inspired by a scene from the TV show *Suits*. This project lets users hide a secret message inside an image, encrypt it with a custom key (and optionally base64 encode it), then attempt to decode it later using the correct decryption key.
 
+App: https://suits-stego-ctf.streamlit.app/
+
 <img width="781" height="861" alt="Screenshot 2025-07-14 at 10 16 31 PM" src="https://github.com/user-attachments/assets/d194cb93-9e56-4bf6-a73a-bbc7f3ae8db8" />
 
 
